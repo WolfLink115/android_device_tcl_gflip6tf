@@ -1,0 +1,49 @@
+# TWRP recovery fstab for TCL T408DL (Gflip6_TF)
+# Based on the stock fstab.mt6739 with TWRP-specific modifications
+
+/dev/block/platform/bootdevice/by-name/boot /boot emmc defaults
+/dev/block/platform/bootdevice/by-name/recovery /recovery emmc defaults
+/dev/block/platform/bootdevice/by-name/system /system ext4 ro
+/dev/block/platform/bootdevice/by-name/vendor /vendor ext4 ro
+/dev/block/platform/bootdevice/by-name/product /product ext4 ro
+/dev/block/platform/bootdevice/by-name/userdata /data f2fs nosuid,nodev,noatime,discard,reserve_root=134217,resgid=1065,latemount,wait,check,quota,reservedsize=128M,formattable,resize,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption
+/dev/block/platform/bootdevice/by-name/cache /cache ext4 nosuid,nodev,noauto_da_alloc,discard,wait,check,formattable
+/dev/block/platform/bootdevice/by-name/metadata /metadata ext4 noatime,nosuid,nodev,discard,wait,check,formattable,first_stage_mount
+/dev/block/platform/bootdevice/by-name/protect1 /protect_f ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc,wait,check,formattable
+/dev/block/platform/bootdevice/by-name/protect2 /protect_s ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc,wait,check,formattable
+/dev/block/platform/bootdevice/by-name/persist /persist ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc,wait,check,formattable
+/dev/block/platform/bootdevice/by-name/nvdata /nvdata ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc,wait,check,formattable
+/dev/block/platform/bootdevice/by-name/nvcfg /nvcfg ext4 noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc,wait,check,formattable
+/dev/block/platform/bootdevice/by-name/para /misc emmc defaults
+/dev/block/platform/bootdevice/by-name/lk /bootloader emmc defaults
+/dev/block/platform/bootdevice/by-name/lk2 /bootloader2 emmc defaults
+/dev/block/platform/bootdevice/by-name/frp /frp emmc defaults
+/dev/block/platform/bootdevice/by-name/nvram /nvram emmc defaults
+/dev/block/platform/bootdevice/by-name/proinfo /proinfo emmc defaults
+/dev/block/platform/bootdevice/by-name/logo /logo emmc defaults
+/dev/block/platform/bootdevice/by-name/expdb /expdb emmc defaults
+/dev/block/platform/bootdevice/by-name/seccfg /seccfg emmc defaults
+/dev/block/platform/bootdevice/by-name/tee1 /tee1 emmc defaults
+/dev/block/platform/bootdevice/by-name/tee2 /tee2 emmc defaults
+/dev/block/platform/bootdevice/by-name/efuse /efuse emmc defaults
+/dev/block/platform/bootdevice/by-name/md1img /md1img emmc defaults
+/dev/block/platform/bootdevice/by-name/md1dsp /md1dsp emmc defaults
+/dev/block/platform/bootdevice/by-name/md1arm7 /md1arm7 emmc defaults
+/dev/block/platform/bootdevice/by-name/md3img /md3img emmc defaults
+/dev/block/platform/bootdevice/by-name/gz1 /gz1 emmc defaults
+/dev/block/platform/bootdevice/by-name/gz2 /gz2 emmc defaults
+/dev/block/platform/bootdevice/by-name/spmfw /spmfw emmc defaults
+/dev/block/platform/bootdevice/by-name/mcupmfw /mcupmfw emmc defaults
+/dev/block/platform/bootdevice/by-name/boot_para /boot_para emmc defaults
+/dev/block/platform/bootdevice/by-name/odmdtbo /odmdtbo emmc defaults
+/dev/block/platform/bootdevice/by-name/dtbo /dtbo emmc defaults
+/dev/block/platform/bootdevice/by-name/otp /otp emmc defaults
+/dev/block/platform/bootdevice/by-name/loader_ext1 /loader_ext1 emmc defaults
+/dev/block/platform/bootdevice/by-name/loader_ext2 /loader_ext2 emmc defaults
+/dev/block/platform/bootdevice/by-name/vbmeta /vbmeta emmc defaults
+/dev/block/platform/bootdevice/by-name/vbmeta_vendor /vbmeta_vendor emmc defaults
+/dev/block/platform/bootdevice/by-name/vbmeta_system /vbmeta_system emmc defaults
+/devices/BOOTDEV* auto vfat defaults voldmanaged=sdcard0:auto
+/devices/platform/externdevice* auto auto defaults voldmanaged=sdcard1:auto,encryptable=userdata
+/devices/platform/mt_usb* auto vfat defaults voldmanaged=usbotg:auto
+/dev/block/zram0 none swap defaults zramsize=75%
